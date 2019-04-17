@@ -2,6 +2,9 @@ import telebot
 from telebot import types
 from datetime import datetime
 from db import Users
+import config
+import dbworker
+
 
 STATE = 0
 

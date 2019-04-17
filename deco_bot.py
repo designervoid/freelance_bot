@@ -2,12 +2,15 @@ import telebot
 from telebot import types
 from datetime import datetime
 from db import Users
+import config
+import dbworker
 import time
 
 TOKEN = '821038681:AAHOZ3Rwx_UwnhAM41d-ZJ9MjssaqLv7KaE'
-user_check = None
 
 STATE = 0
+user_id = 0
+to_user = ''
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -78,18 +81,56 @@ def stop_handler(message):
                      reply_markup=user_hide)
 
 
-@bot.message_handler(regexp='input id of user')
-def start_id_handler(message):
-    global STATE
-    STATE = 3
-    requests_to_text(message, 'input answer')
+# Начало диалогa
+@bot.message_handler(commands=["send_to_user"])
+def cmd_start(message):
+    state = dbworker.get_current_state(617194034)
+    if state == config.States.S_ENTER_CHAT_ID.value:
+        bot.send_message(617194034, "Кажется, кто-то обещал отправить чат айди, но так и не сделал этого :( Жду...")
+    elif state == config.States.S_ENTER_MESSAGE.value:
+        bot.send_message(617194034, "Кажется, кто-то обещал отправить сообщение, но так и не сделал этого :( Жду...")
+    else:  # Под "остальным" понимаем состояние "0" - начало диалога
+        bot.send_message(617194034, "Введи чат айди")
+        dbworker.set_state(617194034, config.States.S_ENTER_CHAT_ID.value)
 
 
+# По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
+@bot.message_handler(commands=["reset"])
+def cmd_reset(message):
+    bot.send_message(617194034, "Что ж, начнём по-новой. Введи айди")
+    dbworker.set_state(617194034, config.States.S_ENTER_CHAT_ID.value)
 
-@bot.message_handler(content_types='text')
+
+@bot.message_handler(func=lambda message: dbworker.get_current_state(message.chat.id) == config.States.S_ENTER_CHAT_ID.value)
+def user_entering_id(message):
+    # В случае с именем не будем ничего проверять, пусть хоть "25671", хоть Евкакий
+    bot.send_message(617194034, "Айди запомнил! Теперь сообщение")
+    dbworker.set_state(617194034, config.States.S_ENTER_MESSAGE.value)
+    global user_id
+    user_id = message.text
+
+
+@bot.message_handler(func=lambda message: dbworker.get_current_state(message.chat.id) == config.States.S_ENTER_MESSAGE.value)
+def user_entering_message(message):
+    global to_user
+    to_user = message.text
+    bot.send_message(617194034, "Запомнил данные! Отправил")
+    bot.send_message(617194034, "Отлично! Повторная отправка командой - /send_to_user.")
+    dbworker.set_state(message.chat.id, config.States.S_SEND_MESSAGE.value)
+    bot.send_message(user_id, to_user)
+
+
+@bot.message_handler(func=lambda message: dbworker.get_current_state(message.chat.id) == config.States.S_SEND_MESSAGE.value)
+def send_msg_to_user(message):
+    bot.send_message(user_id, to_user)
+    bot.send_message(617194034, "Отлично! Повторная отправка командой - /send_to_user.")
+    dbworker.set_state(message.chat.id, config.States.S_START.value)
+
+
+@bot.message_handler(content_types=['text'])
 def text_handler(message):
     print(STATE)
-    if STATE == 1 and not message.from_user.id == 617194034:
+    if not message.from_user.id == 617194034:
         user_input = message.text
         Users.create(chat_id=message.from_user.id,
                      message_from=message.from_user.username,
@@ -97,21 +138,7 @@ def text_handler(message):
         for data in Users.select():
             data_db = f'Chat id: {data.chat_id}\nMessage from: {data.message_from}\n Text: {data.text}'
             bot.send_message(617194034, data_db)
-
-        custom_keyboard = 'input id of user', '222'
-        user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
-        user_markup.add(*custom_keyboard)
-        bot.send_message(617194034, f'Last message: {message.text}', reply_markup=user_markup)
-
-    elif STATE == 1 and message.from_user.id == 617194034:
-        pass
-
-    elif STATE == 2:
-        pass
-
-    elif STATE == 3:
-        bot.send_message(message.text, 'Get message from consult')
-
+        bot.send_message(617194034, f'Last message: {message.text}')
 
 if __name__ == '__main__':
     bot.polling(none_stop=True, interval=0)
