@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8afb743c-03e4-4668-9ae9-86d36d5b4dd2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/.idea/Flask_development.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/chapter_first_app/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/chapter_two_app/app/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/chapter_two_app/app/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Flask_development/chapter_two_app/app/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../aviahackbot/hackbot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deco_bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/chapter_three.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/chapter_two.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/first_task.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/chapter_three_base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/chapter_three_index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/chapter_three_login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/chapter_two_base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/chapter_two_index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/contact.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/data_clients.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/data_products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/form_buy.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/my-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/result.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/student.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../smirnov_labs/templates/success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/aio_bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/classAdvert.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/hackbot/db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/keyboards.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/test_machine_state.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/test_pillow.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../test_repo/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test_repo/repo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../test_repo/class_advert.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1147">
+              <caret line="93" column="46" lean-forward="true" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deco_bot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../aviahackbot/hackbot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="49" selection-start-line="49" selection-end-line="52" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../aviahackbot/python3_venv/lib/python3.7/site-packages/telebot/apihelper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="825">
+              <caret line="55" selection-start-line="55" selection-end-line="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../aviahackbot/python3_venv/lib/python3.7/site-packages/telebot/util.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>вопрос принят</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/bot.py" />
+        <option value="$PROJECT_DIR$/db.py" />
+        <option value="$PROJECT_DIR$/deco_bot.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/freelance_bot.iml" />
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/misc.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1051" />
+    <option name="height" value="823" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="freelance_bot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="freelance_bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.deco_bot">
+    <configuration name="bot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="freelance_bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="db" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="freelance_bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/db.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="deco_bot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="freelance_bot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deco_bot.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.deco_bot" />
+        <item itemvalue="Python.bot" />
+        <item itemvalue="Python.db" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8afb743c-03e4-4668-9ae9-86d36d5b4dd2" name="Default Changelist" comment="" />
+      <created>1555458150291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1555458150291</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1051" height="823" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.34368932" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32968536" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../aviahackbot/python3_venv/lib/python3.7/site-packages/telebot/apihelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aviahackbot/python3_venv/lib/python3.7/site-packages/telebot/util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aviahackbot/hackbot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="49" selection-start-line="49" selection-end-line="52" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1147">
+          <caret line="93" column="46" lean-forward="true" selection-start-line="93" selection-start-column="46" selection-end-line="93" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deco_bot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
