@@ -1,0 +1,198 @@
+import telebot
+from telebot import types
+from datetime import datetime
+from vedis import Vedis
+from flask import Flask, request
+from peewee import SqliteDatabase, Model, IntegerField, CharField
+from enum import Enum
+
+user_data = SqliteDatabase('/home/lucio1337/mysite/user_data.db')
+TOKEN = '821038681:AAHOZ3Rwx_UwnhAM41d-ZJ9MjssaqLv7KaE'
+db_file = "/home/lucio1337/mysite/database.vdb"
+
+STATE = 0
+user_id = 0
+to_user = ''
+
+# secret
+url = 'https://lucio1337.pythonanywhere.com/'
+
+
+bot = telebot.TeleBot(TOKEN, False)
+
+bot.set_webhook(url=url)
+
+
+app = Flask(__name__)
+@app.route('/', methods=['POST'])
+def webhook():
+    update = telebot.types.Update.de_json(request.stream.read().decode('utf-8'))
+    bot.process_new_updates([update])
+    return 'ok', 200
+
+
+
+class States(Enum):
+    """
+    Мы используем БД Vedis, в которой хранимые значения всегда строки,
+    поэтому и тут будем использовать тоже строки (str)
+    """
+    S_START = "0"  # Начало нового диалога
+    S_ENTER_CHAT_ID = "1"
+    S_ENTER_MESSAGE = "2"
+    S_SEND_MESSAGE = "3"
+
+class Users(Model):
+    chat_id = IntegerField()
+    message_from = CharField()
+    text = CharField()
+
+    class Meta:
+        database = user_data
+
+
+def get_current_state(user_id):
+    with Vedis(db_file) as db:
+        try:
+            return db[user_id].decode() # Если используете Vedis версии ниже, чем 0.7.1, то .decode() НЕ НУЖЕН
+        except KeyError:  # Если такого ключа почему-то не оказалось
+            return States.S_START.value  # значение по умолчанию - начало диалога
+
+
+# Сохраняем текущее «состояние» пользователя в нашу базу
+def set_state(user_id, value):
+    with Vedis(db_file) as db:
+        try:
+            db[user_id] = value
+            return True
+        except:
+            # тут желательно как-то обработать ситуацию
+            return False
+
+
+print(bot.get_me())
+
+
+def log(message, answer):
+    print('\n-------')
+    print(datetime.now())
+    print('Сообщение от {0} {1}. (id = {2}) '
+          '\n Текст - {3}'.format(message.from_user.first_name,
+                                  message.from_user.last_name,
+                                  str(message.from_user.id),
+                                  message.text))
+    print(answer)
+
+
+def custom_keyboard_in_commands(message,
+                                custom_keyboard, text='Выберите что вам нужно'):
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
+    user_markup.add(*custom_keyboard)
+    bot.send_message(message.from_user.id, text, reply_markup=user_markup)
+
+
+def resize_custom_keyboard_in_commands(message, custom_keyboard, text):
+    keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+    keyboard.add(*custom_keyboard)
+    bot.send_message(message.from_user.id, text, reply_markup=keyboard)
+
+
+def requests_to_text(message, answer='Request to text'):
+    log(message, answer)
+    bot.send_message(message.chat.id, '{}'.format(answer))
+
+
+@bot.message_handler(regexp='start')
+def start_handler(message):
+    words = 'Легкий завтрак', 'Сытный завтрак'
+    custom_keyboard_in_commands(message, words, text='Что хочешь поесть?')
+
+
+@bot.message_handler(regexp='Легкий завтрак')
+def start_light_breakfast(message):
+    words = 'Задать вопрос', 'Не задавать вопрос'
+    custom_keyboard_in_commands(message, words, text='Вы можете задать вопрос')
+
+
+@bot.message_handler(regexp='Задать вопрос')
+def start_question(message):
+    global STATE
+    STATE = 1
+    user_markup = telebot.types.ReplyKeyboardMarkup(True, False)
+    user_markup.add('Завершить')
+    bot.send_message(message.from_user.id, 'Задайте ваш вопрос', reply_markup=user_markup)
+
+
+@bot.message_handler(regexp='Завершить')
+def end(message):
+    global STATE
+    STATE = 2
+    requests_to_text(message, answer='Ваш запрос принят')
+
+
+@bot.message_handler(commands=['stop'])
+def stop_handler(message):
+    user_hide = telebot.types.ReplyKeyboardRemove()
+    bot.send_message(message.from_user.id, 'hide',
+                     reply_markup=user_hide)
+
+
+# Начало диалогa
+@bot.message_handler(commands=["send_to_user"])
+def cmd_start(message):
+    state = get_current_state(617194034)
+    if state == States.S_ENTER_CHAT_ID.value:
+        bot.send_message(617194034, "Кажется, кто-то обещал отправить чат айди, но так и не сделал этого :( Жду...")
+    elif state == States.S_ENTER_MESSAGE.value:
+        bot.send_message(617194034, "Кажется, кто-то обещал отправить сообщение, но так и не сделал этого :( Жду...")
+    else:  # Под "остальным" понимаем состояние "0" - начало диалога
+        bot.send_message(617194034, "Введи чат айди")
+        set_state(617194034, States.S_ENTER_CHAT_ID.value)
+
+
+# По команде /reset будем сбрасывать состояния, возвращаясь к началу диалога
+@bot.message_handler(commands=["reset"])
+def cmd_reset(message):
+    bot.send_message(617194034, "Что ж, начнём по-новой. Введи айди")
+    set_state(617194034, States.S_ENTER_CHAT_ID.value)
+
+
+@bot.message_handler(func=lambda message: get_current_state(617194034) == States.S_ENTER_CHAT_ID.value)
+def user_entering_id(message):
+    # В случае с именем не будем ничего проверять, пусть хоть "25671", хоть Евкакий
+    bot.send_message(617194034, "Айди запомнил! Теперь сообщение")
+    set_state(617194034, States.S_ENTER_MESSAGE.value)
+    global user_id
+    user_id = message.text
+
+
+@bot.message_handler(func=lambda message: get_current_state(617194034) == States.S_ENTER_MESSAGE.value)
+def user_entering_message(message):
+    global to_user
+    to_user = message.text
+    bot.send_message(617194034, "Запомнил данные! Отправил")
+    bot.send_message(617194034, "Отлично! Повторная отправка командой - /send_to_user.")
+    set_state(message.chat.id, States.S_SEND_MESSAGE.value)
+    bot.send_message(user_id, to_user)
+
+
+@bot.message_handler(func=lambda message: get_current_state(617194034) == States.S_SEND_MESSAGE.value)
+def send_msg_to_user(message):
+    bot.send_message(user_id, to_user)
+    bot.send_message(617194034, "Отлично! Повторная отправка командой - /send_to_user.")
+    set_state(message.chat.id, States.S_START.value)
+
+
+@bot.message_handler(func=lambda message: True)
+def text_handler(message):
+    if not message.from_user.id == 617194034:
+        user_input = message.text
+        Users.create(chat_id=message.from_user.id,
+                     message_from=message.from_user.username,
+                     text=user_input)
+        for data in Users.select():
+            data_db = f'Chat id: {data.chat_id}\nMessage from: {data.message_from}\n Text: {data.text}'
+            bot.send_message(617194034, data_db)
+        bot.send_message(617194034, f'Last message: {message.text}')
+
+
