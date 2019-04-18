@@ -182,6 +182,20 @@ def send_msg_to_user(message):
     bot.send_message(617194034, "Отлично! Повторная отправка командой - /send_to_user.")
     set_state(message.chat.id, States.S_START.value)
 
+@bot.message_handler(commands=['show_db'])
+def show_db(message):
+    if message.from_user.id == 617194034:
+        for data in Users.select():
+            data_db = f'Chat id: {data.chat_id}\nMessage from: {data.message_from}\n Text: {data.text}'
+            bot.send_message(617194034, data_db)
+
+
+@bot.message_handler(commands=['refresh_db'])
+def refresh_db(message):
+    if message.from_user.id == 617194034:
+        for data in Users.select():
+            data.delete_instance()
+
 
 @bot.message_handler(func=lambda message: True)
 def text_handler(message):
@@ -190,9 +204,6 @@ def text_handler(message):
         Users.create(chat_id=message.from_user.id,
                      message_from=message.from_user.username,
                      text=user_input)
-        for data in Users.select():
-            data_db = f'Chat id: {data.chat_id}\nMessage from: {data.message_from}\n Text: {data.text}'
-            bot.send_message(617194034, data_db)
-        bot.send_message(617194034, f'Last message: {message.text}')
+    bot.send_message(617194034, f'Last message -> \nChat Id: {message.from_user.id} \nMessage from: {message.from_user.username} \n Text:{message.text}')
 
 
